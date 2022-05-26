@@ -35,15 +35,7 @@ class Particle{
         this.y += (this.speedY) / 0.5
     }
 }
-window.addEventListener('click',(e) => {
-    mouse.x = e.clientX
-    mouse.y = e.clientY
-    for(let i = 0; i < 5;i++){
-        particleArray.push(new Particle(mouse.x,mouse.y))
-        mouse.x += 5
-        mouse.y += 5
-    }
-})
+
 function particleHandler(){
     for(let i = 0; i < particleArray.length; i++){
         particleArray[i].draw()
@@ -72,4 +64,41 @@ function animate(){
     requestAnimationFrame(animate)
 }
 animate()
+
+window.addEventListener('click',(e) => {
+    mouse.x = e.clientX
+    mouse.y = e.clientY
+    for(let i = 0; i < 5;i++){
+        particleArray.push(new Particle(mouse.x,mouse.y))
+        mouse.x += 5
+        mouse.y += 5
+    }
+})
+
+window.addEventListener('touchstart' , (e) => {
+    mouse.x = e.touches[0].clientX
+    mouse.y = e.touches[0].clientY
+    for(let i = 0; i < 5;i++){
+        particleArray.push(new Particle(mouse.x,mouse.y))
+        mouse.x += 5
+        mouse.y += 5
+    }
+})
+
+window.addEventListener('touchmove' , (e) => {
+    mouse.x = e.touches[0].clientX
+    mouse.y = e.touches[0].clientY
+    for(let i = 0; i < 5;i++){
+        particleArray.push(new Particle(mouse.x,mouse.y))
+        mouse.x += 5
+        mouse.y += 5
+    }
+})
+
+window.addEventListener('resize',() => {
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+})
+
+
 
